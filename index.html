@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프리셀리국제과외</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .logo .free {
+            color: #E75480;
+        }
+
+        .logo .cell {
+            color: white;
+            background: #1e3c72;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .nav-links a {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            background: #f0f7ff;
+            color: #1e3c72;
+        }
+
+        .nav-links a.active {
+            background: #1e3c72;
+            color: white;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Sections */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #1e3c72;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #E75480;
+            padding-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 36px;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 18px;
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #1e3c72;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2a5298;
+        }
+
+        .btn-secondary {
+            background: #E75480;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #d13d6f;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 1rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .tab:hover {
+            color: #1e3c72;
+        }
+
+        .tab.active {
+            color: #1e3c72;
+            border-bottom-color: #E75480;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Form */
+        form {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature {
+            background: #f0f7ff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #1e3c72;
+        }
+
+        .feature-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #E75480;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-links a {
+                padding: 0.5rem 0.75rem;
+                font-size: 12px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero .subtitle {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="free">프리셀리</span><span class="cell">국제과외</span>
+            </div>
+            <ul class="nav-links">
+                <li><a onclick="switchTab('home')" class="active">홈</a></li>
+                <li><a onclick="switchTab('schools')">관리중인 학교</a></li>
+                <li><a onclick="switchTab('subjects')">과목 & 선생님</a></li>
+                <li><a onclick="switchTab('admission')">진학 · 유학</a></li>
+                <li><a onclick="switchTab('process')">진행과정 · 후기</a></li>
+                <li><a onclick="switchTab('news')">뉴스</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <div id="home" class="section active">
+        <div class="container">
+            <div class="hero">
+                <h1>프리셀리국제과외</h1>
+                <p class="subtitle">국내외 국제학교 맞춤형 수업으로 성적을 올리세요</p>
+                <p>✓ IB, AP, IGCSE, Cambridge 전문가<br>✓ 비대면 수업 가능<br>✓ 개인별 맞춤 수업</p>
+                <div class="btn-group">
+                    <a href="https://open.kakao.com/o/sNViBG4h" target="_blank" class="btn btn-secondary" style="text-decoration: none; display: inline-block;">💬 카톡 상담</a>
+                    <a href="tel:010-2069-1741" class="btn btn-primary" style="text-decoration: none; display: inline-block;">📞 전화하기</a>
+                </div>
+            </div>
+
+            <h2>무료 테스트 수업 받기</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div style="font-size: 32px; margin-bottom: 0.5rem;">📝</div>
+                    <h3>1:1 진단 평가</h3>
+                    <p>현재 수준을 정확히 파악하고 약점을 진단합니다.</p>
+                </div>
+                <div class="feature">
+                    <div style="font-size: 32px; margin-bottom: 0.5rem;">🎯</div>
+                    <h3>맞춤형 학습 계획</h3>
+                    <p>학생에게 최적화된 커리큘럼과 수업 일정을 제안합니다.</p>
+                </div>
+                <div class="feature">
+                    <div style="font-size: 32px; margin-bottom: 0.5rem;">💬</div>
+                    <h3>상세한 피드백</h3>
+                    <p>수업 후 학부모님께 상세한 학습 분석을 제공합니다.</p>
+                </div>
+            </div>
+
+            <h2>무료 테스트 수업 신청</h2>
+            <form onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label>아이 이름 *</label>
+                    <input type="text" required placeholder="홍길동">
+                </div>
+                <div class="form-group">
+                    <label>전화번호 (한국 또는 미국번호) *</label>
+                    <input type="tel" required placeholder="예: 010-0000-0000 또는 +1-234-567-8900">
+                </div>
+                <div class="form-group">
+                    <label>주소 *</label>
+                    <input type="text" required placeholder="예: 서울시 강남구 테헤란로">
+                </div>
+                <div class="form-group">
+                    <label>학년 / 학교 *</label>
+                    <input type="text" required placeholder="예: 고1 / 드와이트 외국인학교">
+                </div>
+                <div class="form-group">
+                    <label>관심 과목 (복수 선택 가능) *</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="subject"> 수학 (IB/AP)</label>
+                        <label><input type="checkbox" name="subject"> 영어</label>
+                        <label><input type="checkbox" name="subject"> 과학</label>
+                        <label><input type="checkbox" name="subject"> 제2외국어</label>
+                        <label><input type="checkbox" name="subject"> 입학준비</label>
+                        <label><input type="checkbox" name="subject"> 기타</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>현재 상황 및 목표</label>
+                    <textarea placeholder="현재 학업 상황, 성적, 특별한 요청사항 등을 자유롭게 작성해주세요."></textarea>
+                </div>
+                <div class="form-group">
+                    <label><input type="checkbox" required> 개인정보 수집에 동의합니다.</label>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">무료 테스트 수업 신청하기</button>
+                <p style="font-size: 12px; color: #999; text-align: center; margin-top: 1rem;">신청 후 24시간 이내에 카톡 또는 전화로 연락드립니다.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Schools Section -->
+    <div id="schools" class="section">
+        <div class="container">
+            <h2>관리중인 국제학교</h2>
+            
+            <div class="tabs">
+                <div class="tab active" onclick="switchSchoolTab(event, 'domestic')">국내 (12개)</div>
+                <div class="tab" onclick="switchSchoolTab(event, 'asia')">아시아 (7개)</div>
+                <div class="tab" onclick="switchSchoolTab(event, 'americas')">미주 (15개)</div>
+                <div class="tab" onclick="switchSchoolTab(event, 'europe')">유럽·중동 (7개)</div>
+                <div class="tab" onclick="switchSchoolTab(event, 'oceania')">오세아니아 (4개)</div>
+            </div>
+
+            <div id="domestic" class="tab-content active">
+                <div class="grid">
+                    <div class="card"><h3>🇰🇷 드와이트 외국인학교</h3><p>📍 서울 | IB World School</p><p>서울 지역 명문, 소수정예 교육</p></div>
+                    <div class="card"><h3>🇰🇷 서울외국인학교(SFS)</h3><p>📍 서울 | IB, AP</p><p>서울 명문, 국제 커리큘럼 병행</p></div>
+                    <div class="card"><h3>🇰🇷 서울국제학교(SIS)</h3><p>📍 서울 | IB World School</p><p>IB 전문, 높은 교육 수준</p></div>
+                    <div class="card"><h3>🇰🇷 용산국제학교(YISS)</h3><p>📍 서울 | AP, IB</p><p>강남역 근처, 다양한 커리큘럼</p></div>
+                    <div class="card"><h3>🇰🇷 한국외국인학교(KIS)</h3><p>📍 서울 | AP</p><p>미국 AP 중심, 높은 대학 진학률</p></div>
+                    <div class="card"><h3>🇰🇷 덜위치칼리지 서울</h3><p>📍 서울 | IGCSE, A-Level</p><p>영국 커리큘럼, IGCSE 전문</p></div>
+                    <div class="card"><h3>🇰🇷 경기국제학교</h3><p>📍 경기 | IB, AP</p><p>경기 지역 명문, 최신 시설</p></div>
+                    <div class="card"><h3>🇰🇷 채드윅 송도</h3><p>📍 인천 | IB</p><p>캘리포니아 본교 계열</p></div>
+                    <div class="card"><h3>🇰🇷 제주 국제학교</h3><p>📍 제주 | IB, Cambridge</p><p>IGCSE, A-Level 등 다양</p></div>
+                    <div class="card"><h3>🇰🇷 부산 국제학교</h3><p>📍 부산 | IB</p><p>부산 지역 대표 국제학교</p></div>
+                    <div class="card"><h3>🇰🇷 대구 국제학교</h3><p>📍 대구 | AP, IB</p><p>AP와 IB 병행 가능</p></div>
+                    <div class="card"><h3>🇰🇷 대전 국제학교</h3><p>📍 대전 | IB</p><p>충청권 유일 IB World School</p></div>
+                </div>
+            </div>
+
+            <div id="asia" class="tab-content">
+                <div class="grid">
+                    <div class="card"><h3>🇵🇭 British School Manila</h3><p>필리핀 최고 명문</p></div>
+                    <div class="card"><h3>🇨🇳 Shanghai American School</h3><p>상해 최고 수준, 미국 커리큘럼</p></div>
+                    <div class="card"><h3>🇨🇳 Beijing International School</h3><p>베이징 명문, IB 전문</p></div>
+                    <div class="card"><h3>🇸🇬 Anglo-Chinese School</h3><p>싱가포르 명문</p></div>
+                    <div class="card"><h3>🇲🇾 Sunway International School</h3><p>말레이시아 최고 명문</p></div>
+                    <div class="card"><h3>🇨🇳 Yew Chung International School</h3><p>중국 전역 네트워크</p></div>
+                    <div class="card"><h3>🇻🇳 International School of Ho Chi Minh</h3><p>베트남 최고 국제학교</p></div>
+                </div>
+            </div>
+
+            <div id="americas" class="tab-content">
+                <div class="grid">
+                    <div class="card"><h3>🇺🇸 Phillips Exeter Academy</h3><p>미국 최상위 보딩스쿨</p></div>
+                    <div class="card"><h3>🇺🇸 Phillips Academy Andover</h3><p>미국 명문 보딩스쿨</p></div>
+                    <div class="card"><h3>🇺🇸 Lawrenceville School</h3><p>하크니스 토론 교육</p></div>
+                    <div class="card"><h3>🇺🇸 Deerfield Academy</h3><p>전원형 캠퍼스 명문</p></div>
+                    <div class="card"><h3>🇺🇸 Hotchkiss School</h3><p>호숫가 캠퍼스</p></div>
+                    <div class="card"><h3>🇺🇸 Choate Rosemary Hall</h3><p>JFK 모교, 여학교 명문</p></div>
+                    <div class="card"><h3>🇺🇸 The Harker School</h3><p>실리콘밸리 STEM 명문</p></div>
+                    <div class="card"><h3>🇺🇸 Harvard-Westlake</h3><p>LA 최상위 사립</p></div>
+                    <div class="card"><h3>🇺🇸 St. Paul's School</h3><p>미국 명문 보딩</p></div>
+                    <div class="card"><h3>🇺🇸 Lakeside School</h3><p>빌 게이츠 모교</p></div>
+                    <div class="card"><h3>🇨🇦 Upper Canada College</h3><p>캐나다 최고 명문</p></div>
+                    <div class="card"><h3>🇨🇦 Lakefield College School</h3><p>캐나다 전통 명문</p></div>
+                    <div class="card"><h3>🇨🇦 Brentwood College</h3><p>BC주 명문</p></div>
+                    <div class="card"><h3>🇺🇸 Bergen County Academy</h3><p>뉴저지 최고 공립</p></div>
+                    <div class="card"><h3>🇺🇸 Chadwick School</h3><p>LA 명문, 본교</p></div>
+                </div>
+            </div>
+
+            <div id="europe" class="tab-content">
+                <div class="grid">
+                    <div class="card"><h3>🇬🇧 Eton College</h3><p>영국 최고 명문</p></div>
+                    <div class="card"><h3>🇬🇧 Harrow School</h3><p>영국 명문 보딩</p></div>
+                    <div class="card"><h3>🇬🇧 Rugby School</h3><p>영국 전통 명문</p></div>
+                    <div class="card"><h3>🇬🇧 Malvern College</h3><p>수학 명문</p></div>
+                    <div class="card"><h3>🇸🇦 Jeddah Prep & Grammar School</h3><p>중동 최고 수준</p></div>
+                    <div class="card"><h3>🇦🇪 Emirates International School</h3><p>두바이 명문</p></div>
+                    <div class="card"><h3>🇦🇪 Dubai International Academic</h3><p>두바이 최대 교육 허브</p></div>
+                </div>
+            </div>
+
+            <div id="oceania" class="tab-content">
+                <div class="grid">
+                    <div class="card"><h3>🇦🇺 Sydney Grammar School</h3><p>호주 최고 명문</p></div>
+                    <div class="card"><h3>🇦🇺 Melbourne Grammar School</h3><p>멜버른 명문</p></div>
+                    <div class="card"><h3>🇦🇺 Scotch College</h3><p>퍼스 명문</p></div>
+                    <div class="card"><h3>🇦🇺 Geelong Grammar School</h3><p>빅토리아 명문</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admission & Study Section -->
+    <div id="admission" class="section">
+        <div class="container">
+            <h2>진학 · 유학</h2>
+            
+            <div class="tabs">
+                <div class="tab active" onclick="switchAdmissionTab(event, 'admission-content')">진학안내</div>
+                <div class="tab" onclick="switchAdmissionTab(event, 'study-content')">유학</div>
+            </div>
+
+            <div id="admission-content" class="tab-content active">
+                <div class="grid">
+                    <div class="card">
+                        <h3>국내 진학</h3>
+                        <p>드와이트, 채드윅, 제주 국제학교 등 국내 명문 국제학교 입학 준비. 입학시험, 에세이, 면접 준비를 맞춤형으로 진행합니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3>해외 유학 준비</h3>
+                        <p>필립스 엑서터, 앤도버 등 미국 명문 보딩스쿨 입학 준비. SAT, TOEFL 준비 및 에세이, 면접 코칭을 제공합니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3>대학 진학 컨설팅</h3>
+                        <p>국제학교 학생들의 대학 진학을 위해 GPA 관리, 과외활동 계획, 대학 선택 등을 종합적으로 지원합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="study-content" class="tab-content">
+                <div class="grid">
+                    <div class="card">
+                        <h3>미국 유학</h3>
+                        <p>필립스 엑서터, 앤도버, 로렌스빌 등 미국 명문 보딩스쿨 입학 준비. SAT, 에세이, 면접을 전문적으로 지도합니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3>영국 유학</h3>
+                        <p>Cambridge, IGCSE, A-Level 준비부터 영국 대학 입시까지 종합적으로 지원합니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3>호주/캐나다 유학</h3>
+                        <p>호주 명문 사립학교, 캐나다 보딩스쿨 입학 준비를 지도합니다.</p>
+                    </div>
+                    <div class="card">
+                        <h3>유학 컨설팅</h3>
+                        <p>학교 선택부터 입학까지 전 과정을 상담합니다. 학생의 적성과 목표에 맞는 학교를 추천합니다.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 3rem;">한국 학생들이 많이 가는 국가</h3>
+                <div class="grid">
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 36px; margin-bottom: 0.5rem;">🇸🇬</div>
+                        <h3>싱가포르</h3>
+                        <p>주재원 자녀 多 · 영미·IB 커리큘럼</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 36px; margin-bottom: 0.5rem;">🇲🇾</div>
+                        <h3>말레이시아</h3>
+                        <p>국제학교 150곳+ · 합리적 학비로 인기</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 36px; margin-bottom: 0.5rem;">🇺🇸</div>
+                        <h3>미국</h3>
+                        <p>AP·미국 내신 중심</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 36px; margin-bottom: 0.5rem;">🇬🇧</div>
+                        <h3>영국</h3>
+                        <p>IGCSE·A-Level·보딩스쿨</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 36px; margin-bottom: 0.5rem;">🇨🇳</div>
+                        <h3>중국·홍콩</h3>
+                        <p>주재원 자녀 多 · IB·영국계</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 36px; margin-bottom: 0.5rem;">🇻🇳</div>
+                        <h3>베트남</h3>
+                        <p>호치민·하노이 주재원 자녀</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 36px; margin-bottom: 0.5rem;">🇦🇪</div>
+                        <h3>두바이 (UAE)</h3>
+                        <p>중동 주재원 자녀 거점</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 36px; margin-bottom: 0.5rem;">🇨🇦</div>
+                        <h3>캐나다</h3>
+                        <p>유학·이민 가정</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 36px; margin-bottom: 0.5rem;">🇰🇷</div>
+                        <h3>한국</h3>
+                        <p>제주·송도 등 NLCS·BHA·KIS·채드윅</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subjects & Teachers Section -->
+    <div id="subjects" class="section">
+        <div class="container">
+            <h2>과목 & 선생님</h2>
+            
+            <div class="tabs">
+                <div class="tab active" onclick="switchSubjectTab(event, 'math')">수학</div>
+                <div class="tab" onclick="switchSubjectTab(event, 'english')">영어</div>
+                <div class="tab" onclick="switchSubjectTab(event, 'science')">과학</div>
+                <div class="tab" onclick="switchSubjectTab(event, 'language')">제2외국어</div>
+                <div class="tab" onclick="switchSubjectTab(event, 'teacher')">선생님</div>
+            </div>
+
+            <div id="math" class="tab-content active">
+                <div class="grid">
+                    <div class="card"><h3>IB 수학</h3><p>IB 수학 SL/HL 전 범위. 개념부터 시험 준비까지 체계적으로 지도합니다.</p></div>
+                    <div class="card"><h3>AP 수학</h3><p>AP Calculus, Statistics 등 AP 수학 과목을 심화 수준으로 지도합니다.</p></div>
+                    <div class="card"><h3>Algebra (대수)</h3><p>기초부터 심화까지, 함수, 방정식, 그래프를 완벽히 이해하도록 지도합니다.</p></div>
+                    <div class="card"><h3>Geometry (기하)</h3><p>도형, 공간감각, 증명 문제를 체계적으로 학습합니다.</p></div>
+                    <div class="card"><h3>Pre-Calculus</h3><p>삼각함수, 지수함수, 로그함수 등 미적분학을 위한 기초를 다집니다.</p></div>
+                    <div class="card"><h3>Calculus</h3><p>미분과 적분의 개념부터 응용까지 완벽하게 학습합니다.</p></div>
+                </div>
+            </div>
+
+            <div id="english" class="tab-content">
+                <div class="grid">
+                    <div class="card"><h3>Essay Writing</h3><p>IB, AP 에세이, 대학 지원서 작성을 체계적으로 지도합니다.</p></div>
+                    <div class="card"><h3>Literature</h3><p>문학 작품 분석 및 비평적 읽기 능력을 키웁니다.</p></div>
+                    <div class="card"><h3>SAT Writing</h3><p>SAT 쓰기 섹션을 집중 준비합니다.</p></div>
+                </div>
+            </div>
+
+            <div id="science" class="tab-content">
+                <div class="grid">
+                    <div class="card"><h3>Physics</h3><p>역학, 전자기학, 열역학 등을 체계적으로 학습합니다.</p></div>
+                    <div class="card"><h3>Biology</h3><p>세포, 유전, 진화, 생태계 등 생물학 전 범위를 지도합니다.</p></div>
+                    <div class="card"><h3>Chemistry</h3><p>원자 구조부터 유기화학까지 완벽하게 학습합니다.</p></div>
+                </div>
+            </div>
+
+            <div id="language" class="tab-content">
+                <div class="grid">
+                    <div class="card"><h3>중국어</h3><p>IGCSE, IB Chinese B, 초급 중국어를 지도합니다.</p></div>
+                    <div class="card"><h3>스페인어</h3><p>IB Spanish AB Initio, SL을 지도합니다.</p></div>
+                </div>
+            </div>
+
+            <div id="teacher" class="tab-content">
+                <h3 style="margin-bottom: 2rem; text-align: center;">프리셀리국제과외의 전문 강사진</h3>
+                
+                <div class="grid">
+                    <div class="card">
+                        <div style="font-size: 48px; text-align: center; margin-bottom: 1rem;">👨‍🏫</div>
+                        <h3>David Park</h3>
+                        <p style="color: #E75480; font-weight: 600; margin-bottom: 0.5rem;">수학 전문가</p>
+                        <p><strong>💼 경력:</strong> 15년 (IB, AP, SAT)<br>
+                        <strong>🏆 성과:</strong> 학생 95% IB 수학 만점<br>
+                        <strong>📍 담당:</strong> IB 수학 SL/HL, AP Calculus, SAT Math</p>
+                        <p style="margin-top: 1rem; color: #666;">"복잡한 수학을 단순하게 만드는 것이 저의 목표입니다."</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="font-size: 48px; text-align: center; margin-bottom: 1rem;">👩‍🏫</div>
+                        <h3>Sarah Mitchell</h3>
+                        <p style="color: #E75480; font-weight: 600; margin-bottom: 0.5rem;">영어·에세이 전문가</p>
+                        <p><strong>💼 경력:</strong> 12년 (IB English, Essay Writing)<br>
+                        <strong>🏆 성과:</strong> 학생 에세이 국제 학술지 발표<br>
+                        <strong>📍 담당:</strong> IB English, Essay Writing, 대학 지원서</p>
+                        <p style="margin-top: 1rem; color: #666;">"좋은 에세이는 학생의 목소리가 살아있어야 합니다."</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="font-size: 48px; text-align: center; margin-bottom: 1rem;">👨‍🔬</div>
+                        <h3>James Chen</h3>
+                        <p style="color: #E75480; font-weight: 600; margin-bottom: 0.5rem;">과학 전문가</p>
+                        <p><strong>💼 경력:</strong> 14년 (IB, AP Science)<br>
+                        <strong>🏆 성과:</strong> 학생 과학 올림피아드 입상<br>
+                        <strong>📍 담당:</strong> IB Physics, Chemistry, Biology, AP Science</p>
+                        <p style="margin-top: 1rem; color: #666;">"과학은 개념을 이해하는 것이 핵심입니다."</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="font-size: 48px; text-align: center; margin-bottom: 1rem;">👩‍💼</div>
+                        <h3>Emma Robertson</h3>
+                        <p style="color: #E75480; font-weight: 600; margin-bottom: 0.5rem;">입학·면접 코칭</p>
+                        <p><strong>💼 경력:</strong> 13년 (국제학교 입시 컨설팅)<br>
+                        <strong>🏆 성과:</strong> 학생 합격률 92%<br>
+                        <strong>📍 담당:</strong> 면접 코칭, 에세이 컨설팅, 입시 전략</p>
+                        <p style="margin-top: 1rem; color: #666;">"각 학생의 독특한 이야기를 찾아내는 것이 저의 일입니다."</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="font-size: 48px; text-align: center; margin-bottom: 1rem;">👨‍💻</div>
+                        <h3>Michael Lee</h3>
+                        <p style="color: #E75480; font-weight: 600; margin-bottom: 0.5rem;">IB 수학 심화</p>
+                        <p><strong>💼 경력:</strong> 11년 (IB HL Mathematics)<br>
+                        <strong>🏆 성과:</strong> 학생 IB 만점 20명 배출<br>
+                        <strong>📍 담당:</strong> IB Mathematics HL, Further Mathematics</p>
+                        <p style="margin-top: 1rem; color: #666;">"IB 수학은 논리적 사고력입니다. 이를 키워드립니다."</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="font-size: 48px; text-align: center; margin-bottom: 1rem;">👩‍🎓</div>
+                        <h3>Lisa Thompson</h3>
+                        <p style="color: #E75480; font-weight: 600; margin-bottom: 0.5rem;">SAT·표준화시험 전문</p>
+                        <p><strong>💼 경력:</strong> 10년 (SAT, TOEFL, SSAT)<br>
+                        <strong>🏆 성과:</strong> 학생 평균 SAT 상향 200점<br>
+                        <strong>📍 담당:</strong> SAT, TOEFL, SSAT, 시간 관리 전략</p>
+                        <p style="margin-top: 1rem; color: #666;">"표준화 시험은 전략입니다. 올바른 전략으로 높은 점수를 얻을 수 있습니다."</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="font-size: 48px; text-align: center; margin-bottom: 1rem;">👨‍🎯</div>
+                        <h3>Kevin Park</h3>
+                        <p style="color: #E75480; font-weight: 600; margin-bottom: 0.5rem;">AP 프로그램 전문</p>
+                        <p><strong>💼 경력:</strong> 9년 (AP Economics, Statistics)<br>
+                        <strong>🏆 성과:</strong> 학생 AP 만점률 85%<br>
+                        <strong>📍 담당:</strong> AP Math, Economics, Statistics</p>
+                        <p style="margin-top: 1rem; color: #666;">"AP는 깊이있는 학습입니다. 각 주제를 완벽히 이해하도록 도와드립니다."</p>
+                    </div>
+
+                    <div class="card">
+                        <div style="font-size: 48px; text-align: center; margin-bottom: 1rem;">👩‍🌍</div>
+                        <h3>Jessica Wong</h3>
+                        <p style="color: #E75480; font-weight: 600; margin-bottom: 0.5rem;">외국어·커뮤니케이션</p>
+                        <p><strong>💼 경력:</strong> 8년 (IB Language, IGCSE)<br>
+                        <strong>🏆 성과:</strong> 학생 언어 능력 급격한 향상<br>
+                        <strong>📍 담당:</strong> IB Chinese B, Spanish, English Communication</p>
+                        <p style="margin-top: 1rem; color: #666;">"언어는 문화입니다. 문화를 이해하면 언어가 쉬워집니다."</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; padding: 2rem; background: #f0f7ff; border-radius: 12px; text-align: center;">
+                    <h3>모든 선생님이 다음을 보유하고 있습니다:</h3>
+                    <p>✓ 국제학교 교육 경험 8년 이상<br>
+                    ✓ 학생 성과 입증된 실적<br>
+                    ✓ 국제학교 교과 과정 완전 이해<br>
+                    ✓ 1:1 맞춤 커리큘럼 설계 능력</p>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: #fff5f7; border-radius: 12px; text-align: center; border-left: 4px solid #E75480;">
+                    <p><strong>모든 선생님과의 상담은 무료입니다!</strong><br>
+                    학생의 수준과 목표에 맞는 선생님을 추천해드립니다.<br>
+                    📞 전화: 010-2069-1741 | 💬 카톡 상담</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Process & Reviews Section -->
+    <div id="process" class="section">
+        <div class="container">
+            <h2>진행과정 · 후기</h2>
+            
+            <div class="tabs">
+                <div class="tab active" onclick="switchProcessTab(event, 'process-content')">진행과정</div>
+                <div class="tab" onclick="switchProcessTab(event, 'reviews-content')">후기</div>
+            </div>
+
+            <div id="process-content" class="tab-content active">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div class="grid">
+                        <div class="card" style="text-align: center;">
+                            <div class="feature-number">01</div>
+                            <h3>전화 또는 카톡 상담</h3>
+                            <p>학생의 현재 상황과 목표를 듣고 상담을 진행합니다.</p>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <div class="feature-number">02</div>
+                            <h3>무료 모의수업 진행</h3>
+                            <p>부담 없이 선생님과 직접 수업을 체험해 보세요.</p>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <div class="feature-number">03</div>
+                            <h3>맞춤 커리큘럼 수립</h3>
+                            <p>학생에게 최적화된 커리큘럼과 일정을 설계합니다.</p>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <div class="feature-number">04</div>
+                            <h3>담당쌤 맞춤 수업</h3>
+                            <p>전담 선생님이 1:1 맞춤 수업을 진행합니다.</p>
+                        </div>
+                        <div class="card" style="text-align: center;">
+                            <div class="feature-number">05</div>
+                            <h3>진도 점검 & 관리</h3>
+                            <p>진도와 성적을 지속적으로 점검하고 관리합니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="reviews-content" class="tab-content">
+                <div class="grid">
+                    <div class="card">
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>"한 학기 만에 눈에 띄게 올랐어요. 아이 수준에 딱 맞춰 수업해 주셔서 만족합니다."</p>
+                        <p><strong>— 고등 학부모님</strong></p>
+                    </div>
+                    <div class="card">
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>"대전외국인학교 입학준비를 맡겼는데, 입학조건에 맞춰 영어 에세이와 면접까지 체계적으로 준비시켜 주셔서 합격했습니다."</p>
+                        <p><strong>— 대전외국인학교 합격생 학부모님</strong></p>
+                    </div>
+                    <div class="card">
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>"알지브라 기초부터 다시 잡아주신 덕분에 내신 성적이 크게 올랐어요. 개념을 정확히 짚어주셔서 자신감이 생겼습니다."</p>
+                        <p><strong>— 대전외국인학교 11학년 학생</strong></p>
+                    </div>
+                    <div class="card">
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>"영어 에세이 쓰는 법을 몰라 고생했는데 첨삭과 피드백으로 글쓰기가 확 늘었고, 인터뷰 연습도 함께 해주셔서 입학준비에 큰 도움이 됐어요."</p>
+                        <p><strong>— 대전외국인학교 학부모님</strong></p>
+                    </div>
+                    <div class="card">
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>"국제학교 시험 유형을 정확히 알고 계셔서 내신 대비가 정말 든든했어요."</p>
+                        <p><strong>— 중등 학부모님</strong></p>
+                    </div>
+                    <div class="card">
+                        <p>⭐⭐⭐⭐⭐</p>
+                        <p>"화상수업으로 진행했는데 시차도 맞춰 주시고 현지 학교 진도에 맞게 봐주셔서 큰 도움이 됐습니다."</p>
+                        <p><strong>— 싱가포르 거주 학부모님</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Section -->
+    <div id="news" class="section">
+        <div class="container">
+            <h2>뉴스</h2>
+            <div class="grid">
+                <div class="card" style="cursor: pointer;" onclick="switchTab('blog-1')">
+                    <p style="font-size: 12px; color: #E75480; font-weight: 600;">2026.06.27</p>
+                    <h3>IB 수학, 알지브라 기초부터 잡으니 내신이 달라졌어요</h3>
+                    <p>국제학교 IB 수학을 어려워하던 학생의 1:1 수업 기록입니다. 기초 개념부터 다시 잡아 한 학기 만에 내신이 눈에 띄게 올랐습니다.</p>
+                    <p style="color: #1e3c72; font-weight: 600; margin-top: 1rem;">→ 자세히 읽기</p>
+                </div>
+                <div class="card" style="cursor: pointer;" onclick="switchTab('blog-2')">
+                    <p style="font-size: 12px; color: #E75480; font-weight: 600;">2026.06.27</p>
+                    <h3>드와이트 외국인학교 입학 준비 및 공부 준비 방법</h3>
+                    <p>서울 드와이트 외국인학교(IB World School) 입학 준비부터 공부까지 — 에세이·면접 준비, 알지브라·지오메트리 기초를 정리했습니다.</p>
+                    <p style="color: #1e3c72; font-weight: 600; margin-top: 1rem;">→ 자세히 읽기</p>
+                </div>
+                <div class="card" style="cursor: pointer;" onclick="switchTab('blog-3')">
+                    <p style="font-size: 12px; color: #E75480; font-weight: 600;">2026.06.26</p>
+                    <h3>국제학교 입학, 면접(인터뷰)은 어떻게 준비할까요?</h3>
+                    <p>영어 면접(인터뷰)은 입학 당락을 가르는 중요한 관문입니다. 자기소개·지원 동기·일상 질문을 자연스럽게 답하는 1:1 준비법을 소개합니다.</p>
+                    <p style="color: #1e3c72; font-weight: 600; margin-top: 1rem;">→ 자세히 읽기</p>
+                </div>
+                <div class="card" style="cursor: pointer;" onclick="switchTab('blog-4')">
+                    <p style="font-size: 12px; color: #E75480; font-weight: 600;">2026.06.25</p>
+                    <h3>필립스 엑서터 아카데미 — 특징과 한국 학생 준비법</h3>
+                    <p>미국 최상위 명문 보딩스쿨. 한국 학생 진학 이유와 수학·영어·과학 과외 준비법을 정리했습니다.</p>
+                    <p style="color: #1e3c72; font-weight: 600; margin-top: 1rem;">→ 자세히 읽기</p>
+                </div>
+                <div class="card" style="cursor: pointer;" onclick="switchTab('blog-5')">
+                    <p style="font-size: 12px; color: #E75480; font-weight: 600;">2026.06.24</p>
+                    <h3>필립스 아카데미 앤도버 — 특징과 한국 학생 준비법</h3>
+                    <p>미국 명문 보딩스쿨, 전통 강한 학교. 한국 학생 진학 이유와 수학·영어·과학 과외 준비법을 정리했습니다.</p>
+                    <p style="color: #1e3c72; font-weight: 600; margin-top: 1rem;">→ 자세히 읽기</p>
+                </div>
+                <div class="card" style="cursor: pointer;" onclick="switchTab('blog-6')">
+                    <p style="font-size: 12px; color: #E75480; font-weight: 600;">2026.06.23</p>
+                    <h3>SAT 준비, 어디서부터 시작할까요?</h3>
+                    <p>미국 대학 입시를 위한 SAT 준비 방법, 시간표 구성, 효과적인 공부법을 정리했습니다. 언제부터 시작해야 하는지도 알아봅시다.</p>
+                    <p style="color: #1e3c72; font-weight: 600; margin-top: 1rem;">→ 자세히 읽기</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Post 1 -->
+    <div id="blog-1" class="section">
+        <div class="container" style="max-width: 800px;">
+            <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <h2>IB 수학, 알지브라 기초부터 잡으니 내신이 달라졌어요</h2>
+            <p style="color: #666; margin-bottom: 2rem;">📅 2026.06.27 | 👤 프리셀리국제과외</p>
+            
+            <h3>IB 수학이 어렵다고 느껴지나요?</h3>
+            <p>많은 국제학교 학생들이 겪는 고민입니다. 특히 IB 수학은 개념의 깊이가 깊고, 문제 풀이의 논리적 사고가 중요합니다. 기초가 약하면 뒷부분으로 갈수록 따라가기 어려워집니다.</p>
+
+            <h3>한 학생의 변화 사례</h3>
+            <p>저희 학생 중 한 명은 IB 수학 Algebra 부분에서 계속 C 이상의 성적을 받지 못했습니다. 함수 개념, 방정식 풀이에서 자꾸 실수하고, 시간이 부족했습니다.</p>
+            <p><strong>저희가 한 일:</strong></p>
+            <p>• 기초 Algebra부터 처음부터 다시 시작<br>• 개념별 문제 풀이 패턴 학습<br>• 실수 원인 분석 및 개선<br>• 주 2회 1:1 맞춤 수업</p>
+
+            <h3>결과</h3>
+            <p>한 학기(12주) 후 학생의 성적은:</p>
+            <p><strong>C → B+ → A 로 상승했습니다.</strong></p>
+            <p>학생은 수학에 대한 자신감을 되찾았고, 다른 과목도 함께 올라갔습니다.</p>
+
+            <h3>IB 수학을 잘하려면?</h3>
+            <p><strong>1. 기초가 중요합니다</strong> - 함수, 방정식, 지수, 로그 등 기본 개념을 확실히 이해해야 합니다.</p>
+            <p><strong>2. 시험 유형을 알아야 합니다</strong> - IB는 논리적 사고를 중시합니다. 풀이 과정이 중요합니다.</p>
+            <p><strong>3. 꾸준한 연습이 필수</strong> - 주 2~3회 학습을 통해 패턴을 익혀야 합니다.</p>
+
+            <p style="margin-top: 2rem; padding: 1.5rem; background: #f0f7ff; border-radius: 8px;">
+                <strong>프리셀리국제과외는</strong> IB 수학의 모든 개념을 1:1 맞춤으로 지도합니다.<br>
+                기초부터 심화까지, 시험 준비까지 함께하겠습니다.<br>
+                📞 전화: 010-2069-1741 | 💬 카톡 상담
+            </p>
+        </div>
+    </div>
+
+    <!-- Blog Post 2 -->
+    <div id="blog-2" class="section">
+        <div class="container" style="max-width: 800px;">
+            <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <h2>드와이트 외국인학교 입학 준비 및 공부 준비 방법</h2>
+            <p style="color: #666; margin-bottom: 2rem;">📅 2026.06.27 | 👤 프리셀리국제과외</p>
+            
+            <h3>드와이트 외국인학교란?</h3>
+            <p>서울 강남에 위치한 국제학교로, IB World School 인증을 받은 명문 국제학교입니다. 소수정예 교육으로 유명하며, 한국 국제학교 중에서도 입시가 어려운 편입니다.</p>
+
+            <h3>입학 요건</h3>
+            <p><strong>• 영어 면접(Interview)</strong> - 학생의 영어 의사소통 능력 평가<br>
+            <strong>• 에세이</strong> - 지원 동기 및 자신의 생각을 영어로 표현<br>
+            <strong>• 수학 진단 시험</strong> - 현재 수학 수준 파악<br>
+            <strong>• 학교 성적표</strong> - 기본 학력 확인</p>
+
+            <h3>입학 준비 시간표</h3>
+            <p><strong>입학 4~3개월 전:</strong> 영어 실력 점검, 면접 기초 준비<br>
+            <strong>3~2개월 전:</strong> 에세이 작성법 학습, 면접 실전 연습<br>
+            <strong>2~1개월 전:</strong> 약점 보완, 모의 면접<br>
+            <strong>1개월 이내:</strong> 최종 점검, 자신감 구축</p>
+
+            <h3>특별히 준비해야 할 것</h3>
+            <p><strong>영어 에세이</strong> - 지원 동기, 강점, 약점을 솔직하게 표현. 5-6문장의 간결한 영문 작성이 중요합니다.</p>
+            <p><strong>수학 기초</strong> - Algebra, 함수 등 기초 개념을 확실히 합니다. 입학 후 IB 수학을 잘하려면 필수입니다.</p>
+            <p><strong>영어 면접</strong> - 자신감 있는 목소리로, 질문을 정확히 이해하고 답변하는 것이 중요합니다.</p>
+
+            <h3>입학 후 성공 전략</h3>
+            <p>드와이트는 IB 교육과정을 따릅니다. 입학 후 1학기가 가장 중요한데, 이 시기에 :</p>
+            <p>• 수학 기초를 잘 다져야 합니다<br>
+            • 영어 글쓰기 능력을 키워야 합니다<br>
+            • 시간 관리 습관을 들여야 합니다</p>
+
+            <p style="margin-top: 2rem; padding: 1.5rem; background: #f0f7ff; border-radius: 8px;">
+                <strong>프리셀리국제과외는</strong> 드와이트 입학부터 입학 후까지 모두 지원합니다.<br>
+                에세이 첨삭, 면접 연습, 수학 기초부터 내신 관리까지.<br>
+                📞 전화: 010-2069-1741 | 💬 카톡 상담
+            </p>
+        </div>
+    </div>
+
+    <!-- Blog Post 3 -->
+    <div id="blog-3" class="section">
+        <div class="container" style="max-width: 800px;">
+            <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <h2>국제학교 입학, 면접(인터뷰)은 어떻게 준비할까요?</h2>
+            <p style="color: #666; margin-bottom: 2rem;">📅 2026.06.26 | 👤 프리셀리국제과외</p>
+            
+            <h3>면접이 합격을 결정합니다</h3>
+            <p>국제학교 입학에서 영어 면접은 매우 중요합니다. 에세이는 준비 기간이 있지만, 면접은 그 자리에서 실시간으로 대응해야 하기 때문입니다.</p>
+
+            <h3>자주 나오는 면접 질문</h3>
+            <p><strong>1. Tell me about yourself</strong> - 자신의 배경, 강점, 약점을 2분 정도로 설명<br>
+            <strong>2. Why do you want to join our school?</strong> - 학교에 입학하고 싶은 이유<br>
+            <strong>3. What are your strengths and weaknesses?</strong> - 강점과 약점을 균형있게 표현<br>
+            <strong>4. What do you do in your free time?</strong> - 취미와 특기에 대한 설명<br>
+            <strong>5. Tell me about a challenging experience</strong> - 어려웠던 경험과 극복 방법</p>
+
+            <h3>효과적인 면접 준비법</h3>
+            <p><strong>Step 1: 자신의 스토리 만들기</strong><br>
+            자신의 약점을 부정적으로만 표현하지 말고, 어떻게 극복했는지 보여주세요.</p>
+
+            <p><strong>Step 2: 반복 연습</strong><br>
+            같은 질문을 10번 이상 연습해서 자연스러워질 때까지 합니다.</p>
+
+            <p><strong>Step 3: 목소리와 자세</strong><br>
+            크고 명확한 목소리, 시선 접촉, 바른 자세가 중요합니다.</p>
+
+            <p><strong>Step 4: 질문에 정확히 답변</strong><br>
+            질문을 끝까지 듣고, 정확히 이해한 후 답변하세요.</p>
+
+            <h3>면접 당일 팁</h3>
+            <p>• 충분한 수면을 취하세요<br>
+            • 깔끔한 복장을 입으세요<br>
+            • 면접관과 악수를 합니다<br>
+            • 긴장하더라도 자신감 있게 대답하세요<br>
+            • 마지막에 "질문이 있으신가요?" 질문에 대비하세요</p>
+
+            <p style="margin-top: 2rem; padding: 1.5rem; background: #f0f7ff; border-radius: 8px;">
+                <strong>프리셀리국제과외는</strong> 국제학교 면접 전문가입니다.<br>
+                실제 면접처럼 1:1 모의면접, 발음 교정, 자신감 구축을 돕습니다.<br>
+                📞 전화: 010-2069-1741 | 💬 카톡 상담
+            </p>
+        </div>
+    </div>
+
+    <!-- Blog Post 4 -->
+    <div id="blog-4" class="section">
+        <div class="container" style="max-width: 800px;">
+            <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <h2>필립스 엑서터 아카데미 — 특징과 한국 학생 준비법</h2>
+            <p style="color: #666; margin-bottom: 2rem;">📅 2026.06.25 | 👤 프리셀리국제과외</p>
+            
+            <h3>필립스 엑서터 아카데미란?</h3>
+            <p>미국 뉴햄프셔주에 위치한 미국 최상위 보딩스쿨입니다. 1781년 설립된 전통 명문이며, 매년 미국 최상위 대학으로 학생들을 배출합니다.</p>
+
+            <h3>특징</h3>
+            <p><strong>1. 하크니스 테이블(Harkness Table)</strong><br>
+            10명 정도의 학생이 둥근 테이블에 앉아서 토론합니다. 수평적 대화를 통해 깊이 있는 학습을 합니다.</p>
+
+            <p><strong>2. 높은 입시 경쟁률</strong><br>
+            합격률이 약 5-7% 정도로 매우 낮습니다. 뛰어난 학생들만 입학합니다.</p>
+
+            <p><strong>3. 우수한 수학 교육</strong><br>
+            수학 커리큘럼이 특히 강합니다. 고급 수학 과정이 다양합니다.</p>
+
+            <h3>한국 학생이 준비해야 할 것</h3>
+            <p><strong>학업 성적</strong> - GPA 4.0 이상 필수<br>
+            <strong>TOEFL</strong> - 110점 이상 추천<br>
+            <strong>SSAT 또는 School's Own Test</strong> - 수학, 영어, 읽기 능력 평가<br>
+            <strong>에세이</strong> - 2-3개의 에세이 작성<br>
+            <strong>추천서</strong> - 현재 학교 선생님 2명의 추천서<br>
+            <strong>면접</strong> - 입학사정관과의 1:1 면접</p>
+
+            <h3>합격자의 특징</h3>
+            <p>• 우수한 학업 성적<br>
+            • 특별한 재능이나 관심사<br>
+            • 리더십 경험<br>
+            • 강한 동기와 학교에 대한 이해<br>
+            • 탁월한 영어 능력</p>
+
+            <h3>입학 후 성공 전략</h3>
+            <p>필립스 엑서터 입학 후 가장 중요한 것은:</p>
+            <p><strong>1. 수학 기초가 탄탄해야 합니다</strong> - 고급 수학 과정을 따라가려면 기초가 중요합니다.<br>
+            <strong>2. 토론 능력이 필요합니다</strong> - 하크니스 테이블에서 자신의 의견을 표현해야 합니다.<br>
+            <strong>3. 독립적 학습 능력</strong> - 보딩스쿨은 스스로 시간을 관리해야 합니다.</p>
+
+            <p style="margin-top: 2rem; padding: 1.5rem; background: #f0f7ff; border-radius: 8px;">
+                <strong>프리셀리국제과외는</strong> 필립스 엑서터 입학부터 입학 후까지 지원합니다.<br>
+                TOEFL, 에세이, 수학 기초, 입학 후 고급 수학까지.<br>
+                📞 전화: 010-2069-1741 | 💬 카톡 상담
+            </p>
+        </div>
+    </div>
+
+    <!-- Blog Post 5 -->
+    <div id="blog-5" class="section">
+        <div class="container" style="max-width: 800px;">
+            <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <h2>필립스 아카데미 앤도버 — 특징과 한국 학생 준비법</h2>
+            <p style="color: #666; margin-bottom: 2rem;">📅 2026.06.24 | 👤 프리셀리국제과외</p>
+            
+            <h3>필립스 아카데미 앤도버란?</h3>
+            <p>매사추세츠주에 위치한 미국 명문 보딩스쿨입니다. 1778년 설립되어 240년의 전통을 자랑합니다. 엑서터와 함께 미국 최상위 보딩스쿨로 꼽힙니다.</p>
+
+            <h3>특징</h3>
+            <p><strong>1. 학문과 인성 교육</strong><br>
+            단순한 학업 성적이 아닌, 전인교육을 강조합니다.</p>
+
+            <p><strong>2. 다양한 과외활동</strong><br>
+            스포츠, 음악, 미술, 토론 등 다양한 활동이 활발합니다.</p>
+
+            <p><strong>3. 강한 전통</strong><br>
+            240년의 역사 속에서 많은 지도자와 학자를 배출했습니다.</p>
+
+            <h3>입학 준비 요령</h3>
+            <p><strong>학업 성적</strong> - GPA 3.9 이상<br>
+            <strong>표준화 시험</strong> - SSAT 또는 ISEE<br>
+            <strong>에세이</strong> - 개인적 경험과 학교에 대한 열정 표현<br>
+            <strong>면접</strong> - 학교에 방문해서 면접 (온라인 옵션도 있음)<br>
+            <strong>추천서</strong> - 영어, 수학 선생님 추천서</p>
+
+            <h3>입학 후 학업 계획</h3>
+            <p>앤도버는 학생이 자신의 학업 계획을 세울 수 있습니다. 고급 수학을 원하면 Calculus, Linear Algebra, 또는 AP 수학을 수강할 수 있습니다.</p>
+
+            <p style="margin-top: 2rem; padding: 1.5rem; background: #f0f7ff; border-radius: 8px;">
+                <strong>프리셀리국제과외는</strong> 필립스 앤도버 입학을 전문으로 합니다.<br>
+                에세이 작성, 수학 강화, 면접 준비, 입학 후 학업 관리까지.<br>
+                📞 전화: 010-2069-1741 | 💬 카톡 상담
+            </p>
+        </div>
+    </div>
+
+    <!-- Blog Post 6 -->
+    <div id="blog-6" class="section">
+        <div class="container" style="max-width: 800px;">
+            <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <h2>SAT 준비, 어디서부터 시작할까요?</h2>
+            <p style="color: #666; margin-bottom: 2rem;">📅 2026.06.23 | 👤 프리셀리국제과외</p>
+            
+            <h3>SAT란?</h3>
+            <p>미국 대학 입시에 필요한 표준화 시험입니다. 읽기/쓰기(EBRW)와 수학 두 섹션으로 나뉘며, 총점은 1600점입니다.</p>
+
+            <h3>언제부터 준비해야 할까?</h3>
+            <p><strong>대학 지원 시간표</strong><br>
+            • 11학년 봄: 첫 SAT 응시 계획<br>
+            • 11학년 여름: SAT 준비 시작<br>
+            • 11학년 가을: 첫 SAT 응시<br>
+            • 11학년 겨울: 재응시 여부 판단<br>
+            • 12학년 봄: 최종 점수 제출</p>
+
+            <h3>SAT 준비 시간표 (12주)</h3>
+            <p><strong>1주차-2주차: 기초 파악</strong><br>
+            • SAT 구조 이해<br>
+            • 모의고사 응시<br>
+            • 약점 분석</p>
+
+            <p><strong>3주차-8주차: 집중 준비</strong><br>
+            • 영역별 집중 학습 (읽기, 쓰기, 수학)<br>
+            • 매주 모의고사<br>
+            • 약점 보완</p>
+
+            <p><strong>9주차-11주차: 심화 준비</strong><br>
+            • 고난도 문제 풀이<br>
+            • 시간 관리 연습<br>
+            • 최종 모의고사</p>
+
+            <p><strong>12주차: 최종 점검</strong><br>
+            • 실전 감각 유지<br>
+            • 자신감 구축<br>
+            • 시험 전략 확인</p>
+
+            <h3>각 섹션별 준비법</h3>
+            <p><strong>수학 섹션</strong><br>
+            기초 개념 → 유형별 문제 풀이 → 시간 관리 연습</p>
+
+            <p><strong>읽기 섹션</strong><br>
+            긴 지문 독해 능력 → 빠른 읽기 속도 → 정확한 답변</p>
+
+            <p><strong>쓰기 섹션</strong><br>
+            문법 기초 → 문맥에 맞는 단어 선택 → 논리적 글쓰기</p>
+
+            <h3>SAT 수학 팁</h3>
+            <p>• 기초부터 다시 복습하세요<br>
+            • 실수하기 쉬운 문제 유형을 파악하세요<br>
+            • 시간 안에 풀기 위한 연습이 필요합니다<br>
+            • 어려운 문제에 너무 오래 머물지 마세요</p>
+
+            <p style="margin-top: 2rem; padding: 1.5rem; background: #f0f7ff; border-radius: 8px;">
+                <strong>프리셀리국제과외의 SAT 프로그램</strong><br>
+                • 개인별 맞춤 SAT 준비<br>
+                • 매주 모의고사와 분석<br>
+                • 수학 강화 프로그램<br>
+                • 읽기/쓰기 전략 코칭<br>
+                📞 전화: 010-2069-1741 | 💬 카톡 상담
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>📞 <a href="tel:010-2069-1741" style="color: white; text-decoration: underline;">전화: 010-2069-1741</a> | 💬 <a href="https://open.kakao.com/o/sNViBG4h" style="color: white; text-decoration: underline;" target="_blank">카톡 상담</a></p>
+        <p style="margin-top: 1rem;">온라인 수업 | 국내외 학생 환영 | 상담 24시간 가능</p>
+        <p style="margin-top: 1rem; font-size: 12px;">© 2026 프리셀리국제과외. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(tabName).classList.add('active');
+            
+            // Update nav links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function switchSchoolTab(e, tabName) {
+            // Hide all tabs
+            document.querySelectorAll('#schools .tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Update tab buttons
+            document.querySelectorAll('#schools .tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            e.target.classList.add('active');
+        }
+
+        function switchAdmissionTab(e, tabName) {
+            // Hide all tabs
+            document.querySelectorAll('#admission .tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Update tab buttons
+            document.querySelectorAll('#admission .tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            e.target.classList.add('active');
+        }
+
+        function switchProcessTab(e, tabName) {
+            // Hide all tabs
+            document.querySelectorAll('#process .tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Update tab buttons
+            document.querySelectorAll('#process .tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            e.target.classList.add('active');
+        }
+
+        function switchSubjectTab(e, tabName) {
+            // Hide all tabs
+            document.querySelectorAll('#subjects .tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Update tab buttons
+            document.querySelectorAll('#subjects .tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            e.target.classList.add('active');
+        }
+
+        function submitForm(e) {
+            e.preventDefault();
+            alert('신청이 접수되었습니다!\n카톡 또는 전화로 빠르게 연락드리겠습니다.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
