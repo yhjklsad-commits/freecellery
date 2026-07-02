@@ -61,8 +61,6 @@
         }
 
         .nav-top {
-            max-width: 1200px;
-            margin: 0 auto;
             padding: 0.75rem 1rem;
             display: flex;
             align-items: center;
@@ -74,6 +72,7 @@
             font-size: 22px;
             font-weight: 800;
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .logo .free { color: #E75480; }
@@ -89,7 +88,7 @@
         .nav-cta {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            flex-shrink: 0;
         }
 
         .nav-cta a {
@@ -104,11 +103,8 @@
         }
 
         .nav-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            display: flex;
             overflow-x: auto;
+            overflow-y: hidden;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
         }
@@ -117,14 +113,18 @@
 
         .nav-links {
             display: flex;
-            gap: 0;
+            flex-wrap: nowrap;
             list-style: none;
-            min-width: max-content;
+            margin: 0;
+            padding: 0 0.5rem;
+            width: max-content;
         }
+
+        .nav-links li { flex-shrink: 0; }
 
         .nav-links a {
             cursor: pointer;
-            padding: 0.75rem 1.1rem;
+            padding: 0.75rem 1rem;
             display: block;
             font-size: 14px;
             font-weight: 600;
