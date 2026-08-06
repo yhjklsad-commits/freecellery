@@ -91,6 +91,22 @@
             flex-shrink: 0;
         }
 
+        .live-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #2ecc71;
+            box-shadow: 0 0 0 rgba(46,204,113,0.6);
+            animation: live-pulse 1.6s infinite;
+            margin-right: 5px;
+        }
+        @keyframes live-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(46,204,113,0.6); }
+            70% { box-shadow: 0 0 0 6px rgba(46,204,113,0); }
+            100% { box-shadow: 0 0 0 0 rgba(46,204,113,0); }
+        }
+
         .nav-cta a {
             background: #E75480;
             color: white;
@@ -630,7 +646,7 @@
                 <span class="free">프리셀리</span><span class="cell">국제과외</span>
             </div>
             <div class="nav-cta">
-                <a href="https://naver.me/551pYZUr" target="_blank">📋 무료수업 신청</a>
+                <a href="https://naver.me/551pYZUr" target="_blank"><span class="live-dot"></span>상담신청</a>
             </div>
         </div>
         <div class="nav-bottom">
@@ -1365,6 +1381,13 @@
         <div class="container">
             <h2>뉴스</h2>
             <div class="grid">
+                <div class="card" style="cursor: pointer;" onclick="switchTab('blog-27')">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&q=75&fit=crop" alt="" style="width:100%; height:160px; object-fit:cover; border-radius:8px; margin-bottom:0.8rem;">
+                    <p style="font-size: 12px; color: #E75480; font-weight: 600;">2026.08.05 · NLCS 제주 · 영국계 IGCSE·A-Level</p>
+                    <h3>NLCS 제주 완전정복 — 영국 명문의 제주 캠퍼스</h3>
+                    <p>내국인도 국적·거주 제한 없이 입학 가능한 NLCS 제주. 영국식 커리큘럼(IGCSE·A-Level)과 입학 준비 방법을 정리했습니다.</p>
+                    <p style="color: #1e3c72; font-weight: 600; margin-top: 1rem;">→ 자세히 읽기</p>
+                </div>
                 <div class="card" style="cursor: pointer;" onclick="switchTab('blog-22')">
                     <p style="font-size: 12px; color: #E75480; font-weight: 600;">2026.08.01</p>
                     <h3>강동 IB TOK(지식론), 다른 과목과 뭐가 다를까요?</h3>
@@ -1529,6 +1552,8 @@
     <div id="blog-1" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>IB 수학, 알지브라 기초부터 잡으니 내신이 달라졌어요</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.06.27 | 👤 프리셀리국제과외</p>
             
@@ -1562,6 +1587,8 @@
     <div id="blog-2" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>드와이트 외국인학교 입학 준비 및 공부 준비 방법</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.06.27 | 👤 프리셀리국제과외</p>
             
@@ -1603,6 +1630,8 @@
     <div id="blog-3" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>국제학교 입학, 면접(인터뷰)은 어떻게 준비할까요?</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.06.26 | 👤 프리셀리국제과외</p>
             
@@ -1648,6 +1677,8 @@
     <div id="blog-4" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>필립스 엑서터 아카데미 — 특징과 한국 학생 준비법</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.06.25 | 👤 프리셀리국제과외</p>
             
@@ -1697,6 +1728,8 @@
     <div id="blog-5" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>필립스 아카데미 앤도버 — 특징과 한국 학생 준비법</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.06.24 | 👤 프리셀리국제과외</p>
             
@@ -1735,6 +1768,8 @@
     <div id="blog-6" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>SAT 준비, 어디서부터 시작할까요?</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.06.23 | 👤 프리셀리국제과외</p>
             
@@ -1801,6 +1836,8 @@
     <div id="blog-7" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>제주 국제학교 전문과외, 일반 과외와 무엇이 다를까요?</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.16 | 👤 프리셀리국제과외</p>
 
@@ -1829,6 +1866,8 @@
     <div id="blog-8" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>분당 국제학교 G8 수학, 온라인과외로 격차를 줄이는 법</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.15 | 👤 프리셀리국제과외</p>
 
@@ -1856,6 +1895,8 @@
     <div id="blog-9" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>송도 국제학교 G10 과학, 온라인과외가 필요한 이유</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.14 | 👤 프리셀리국제과외</p>
 
@@ -1883,6 +1924,8 @@
     <div id="blog-10" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>부산 국제학교 G6 수학, 지금 기초를 잡아야 하는 이유</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.13 | 👤 프리셀리국제과외</p>
 
@@ -1910,6 +1953,8 @@
     <div id="blog-11" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>"전문튜터"란 정확히 어떤 의미일까요?</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.12 | 👤 프리셀리국제과외</p>
 
@@ -1937,6 +1982,8 @@
     <div id="blog-12" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>일산 국제학교 IGCSE 과학 과외, 무엇이 다를까요?</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.21 | 👤 프리셀리국제과외</p>
 
@@ -1963,6 +2010,8 @@
     <div id="blog-13" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>판교 G10 수학 온라인과외, AA와 AI 갈림길에서</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.20 | 👤 프리셀리국제과외</p>
 
@@ -1989,6 +2038,8 @@
     <div id="blog-14" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>청담 학생들을 위한 AP 과목 선택 가이드</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.19 | 👤 프리셀리국제과외</p>
 
@@ -2015,6 +2066,8 @@
     <div id="blog-15" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>용인 국제학교 G8 과학, 지금 기초를 잡아야 하는 이유</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.18 | 👤 프리셀리국제과외</p>
 
@@ -2041,6 +2094,8 @@
     <div id="blog-16" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>광주 국제학교 전문튜터, 방문과외 vs 온라인과외</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.17 | 👤 프리셀리국제과외</p>
 
@@ -2067,6 +2122,8 @@
     <div id="blog-17" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>목동 IB 영어(English A) 과외, 국어 잘하는 것과는 다릅니다</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.27 | 👤 프리셀리국제과외</p>
 
@@ -2093,6 +2150,8 @@
     <div id="blog-18" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>반포 G6 국제학교 입학 준비, 무엇을 준비해야 할까요?</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.26 | 👤 프리셀리국제과외</p>
 
@@ -2119,6 +2178,8 @@
     <div id="blog-19" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>이촌동 G10 온라인과외, 언제 시작하는 게 좋을까요?</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.25 | 👤 프리셀리국제과외</p>
 
@@ -2145,6 +2206,8 @@
     <div id="blog-20" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>하남 IGCSE 수학 과외, Core와 Extended의 차이</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.24 | 👤 프리셀리국제과외</p>
 
@@ -2171,6 +2234,8 @@
     <div id="blog-21" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>창원 학부모가 묻는, "전문튜터"에 자격증이 있나요?</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.23 | 👤 프리셀리국제과외</p>
 
@@ -2197,6 +2262,8 @@
     <div id="blog-22" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>강동 IB TOK(지식론), 다른 과목과 뭐가 다를까요?</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.08.01 | 👤 프리셀리국제과외</p>
 
@@ -2223,6 +2290,8 @@
     <div id="blog-23" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>노원 G6 편입, 영어 인터뷰가 당락을 가릅니다</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.31 | 👤 프리셀리국제과외</p>
 
@@ -2249,6 +2318,8 @@
     <div id="blog-24" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>시흥 학생들이 헷갈리는 AP Calculus와 IB Math 차이</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.30 | 👤 프리셀리국제과외</p>
 
@@ -2275,6 +2346,8 @@
     <div id="blog-25" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>화성 G8 수학 온라인과외, 방치하면 격차가 벌어지는 시기</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.29 | 👤 프리셀리국제과외</p>
 
@@ -2301,6 +2374,8 @@
     <div id="blog-26" class="section">
         <div class="container" style="max-width: 800px;">
             <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
             <h2>천안 국제학교 전학, 최적의 시기는 언제일까요?</h2>
             <p style="color: #666; margin-bottom: 2rem;">📅 2026.07.28 | 👤 프리셀리국제과외</p>
 
@@ -2318,6 +2393,60 @@
 
             <p style="margin-top: 2rem; padding: 1.5rem; background: #f0f7ff; border-radius: 8px;">
                 <strong>프리셀리국제과외는</strong> 천안을 포함한 전국 국제학교 전학 준비생을 위한 사전 커리큘럼을 제공합니다.<br>
+                📞 전화: 010-2069-1741 | 💬 카톡 상담
+            </p>
+        </div>
+    </div>
+
+    <!-- Blog Post 27 -->
+    <div id="blog-27" class="section">
+        <div class="container" style="max-width: 800px;">
+            <button class="btn btn-secondary" onclick="switchTab('news')" style="margin-bottom: 2rem;">← 뉴스 목록</button>
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=75&fit=crop" alt="" style="width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:0.5rem;">
+            <p style="font-size:12px;color:#999;margin-bottom:1.5rem;">국제학교 이미지 (참고용)</p>
+            <h2>NLCS 제주 완전정복 — 영국 명문의 제주 캠퍼스</h2>
+            <p style="color: #666; margin-bottom: 2rem;">📅 2026.08.05 · NLCS 제주 · 영국계 IGCSE·A-Level | 👤 프리셀리국제과외</p>
+
+            <p style="margin-bottom: 2rem; padding: 1.5rem; background: #f0f7ff; border-radius: 8px;">순수 국내 가정도 국적·해외 거주 조건 없이 국제교육을 받을 수 있는 대표적인 곳이 제주 영어교육도시입니다. 그중 NLCS 제주(North London Collegiate School Jeju)는 영국 명문 사립을 모체로 해 문의가 특히 많은 학교입니다. NLCS 제주가 어떤 학교인지, 내국인 입학과 영국식 커리큘럼(IGCSE·A-Level)을 어떻게 준비해야 하는지 정리했습니다.</p>
+
+            <h3>1. NLCS 제주는 어떤 학교인가</h3>
+            <p>NLCS 제주는 영국 런던의 명문 사립 North London Collegiate School을 모체로, 제주 영어교육도시(JDC)에 세워진 국제학교입니다.</p>
+            <p>• <strong>커리큘럼</strong> — 영국식. 중등 후반의 IGCSE, 고등(식스폼)의 A-Level로 대학을 준비하는 흐름입니다.<br>
+            • <strong>진학</strong> — 영국·미국을 포함한 해외 명문대 진학 사례가 알려져 있습니다.<br>
+            • <strong>위치</strong> — 제주 서귀포 영어교육도시. 같은 단지에 브랭섬홀 아시아·KIS 제주 등이 함께 있습니다.</p>
+
+            <h3>2. ⭐ 가장 큰 특징 — 내국인이 제한 없이 입학</h3>
+            <p>일반 외국인학교는 외국 국적이나 해외 거주 경력이 있어야 하지만, 제주영어교육도시의 국제학교는 제주국제학교 특별법에 근거해 내국인이 국적·거주 제한 없이 입학할 수 있습니다. 해외 거주 경험이 없는 순수 국내 가정도 지원할 수 있다는 뜻입니다. 국제학교와 외국인학교의 차이는 홈 화면의 "학교 종류 총정리"에서 자세히 정리해 두었습니다. (정원·전형은 해마다 다르니 학교 요강 확인은 필수입니다.)</p>
+
+            <h3>3. 영국식 커리큘럼 — 미국식과 무엇이 다른가</h3>
+            <p>영국식은 미국식(알지브라·지오메트리·AP)과 수학 용어·표기·시험 구조가 다릅니다.</p>
+            <p>• <strong>IGCSE</strong> — 중등 마무리 단계의 국제 시험으로, 여러 과목을 폭넓게 이수합니다.<br>
+            • <strong>A-Level</strong> — 식스폼에서 3~4과목을 깊게 파고들며, 대학 전공과 직결되어 과목 선택이 중요합니다.<br>
+            • <strong>수학</strong> — 영국식은 표기·접근이 미국식과 달라, 미국계 학교를 다니다 온 학생은 용어 전환이 필요합니다. A-Level 수학·추가수학(Further Maths)은 범위가 깊어 개념을 촘촘히 쌓아야 합니다.</p>
+
+            <h3>4. 입학 준비 — 영어·수학과외</h3>
+            <p><strong>영어</strong> — 입학 평가의 중심은 영어입니다. 에세이 구조(주장·근거·예시), 리딩 독해, 인터뷰를 결론→이유→예시 틀로 준비합니다. 저학년은 리딩·대화, 고학년은 에세이 비중이 큽니다.</p>
+            <p><strong>수학</strong> — 입학 시에는 학년에 맞는 수학을 영어로 풀 수 있는지가 관건이고, 입학 후에는 IGCSE→A-Level로 이어지는 내신을 관리해야 합니다. 미국계 학교에서 알지브라·지오메트리로 배운 학생은 영국식 표기로 다시 정리하는 과정이 필요합니다.</p>
+
+            <h3>5. 학년별로 — 언제 무엇을</h3>
+            <p><strong>초등(Prep, G1~G6)</strong> — 영어 리딩·라이팅 기초와 즐거운 영어 노출이 핵심입니다.<br>
+            <strong>중등(G7~G11, IGCSE)</strong> — 여러 과목을 폭넓게 이수하며 영어 에세이와 수학·과학 개념을 동시에 관리합니다.<br>
+            <strong>식스폼(G12~G13, A-Level)</strong> — 3~4과목을 깊게 파고 대학 전공과 연결합니다. 수학·과학은 범위가 깊어 1:1 관리가 차이를 만듭니다.</p>
+
+            <h3>6. 제주에서의 현실 — 온라인과외로 잇는다</h3>
+            <p>제주 영어교육도시는 좋은 학교가 모여 있지만, 전문 과외 인프라는 서울·경기만큼 두텁지 않습니다. 온라인 1:1로 입학 준비(에세이·수학)부터 IGCSE·A-Level 내신, 대학 진학 과목 설계까지 이어서 도와드립니다.</p>
+
+            <h3>자주 묻는 질문</h3>
+            <p><strong>Q. NLCS 제주는 내국인도 입학할 수 있나요?</strong><br>
+            가능합니다. 제주국제학교 특별법에 근거해 내국인이 국적·해외 거주 제한 없이 입학할 수 있습니다. 다만 정원·전형은 해마다 다르니 학교 요강을 확인하셔야 합니다.</p>
+            <p><strong>Q. NLCS 제주는 어떤 커리큘럼인가요?</strong><br>
+            영국 런던의 명문 사립 NLCS를 모체로 한 영국식 커리큘럼 학교로, 중등 후반의 IGCSE, 식스폼의 A-Level로 대학을 준비합니다.</p>
+            <p><strong>Q. 제주 국제학교 준비, 과외는 어떻게 하나요?</strong><br>
+            입학은 영어 에세이·리딩·인터뷰와 학년에 맞는 수학이 핵심이고, 입학 후엔 IGCSE·A-Level 내신이 관건입니다. 제주는 전문 인프라가 제한적이라 온라인 1:1로 이어서 관리하는 가정이 많습니다.</p>
+
+            <p style="margin-top: 2rem; padding: 1.5rem; background: #f0f7ff; border-radius: 8px;">
+                NLCS 제주는 내국인 제한 없이 지원 가능하지만, 영국식 커리큘럼이라 미국식과 준비 방향이 다릅니다.<br>
+                <strong>프리셀리국제과외</strong>는 NLCS 제주를 포함한 제주 영어교육도시 학생들의 입학·내신을 온라인 1:1로 지도합니다.<br>
                 📞 전화: 010-2069-1741 | 💬 카톡 상담
             </p>
         </div>
