@@ -2484,6 +2484,27 @@
             el.scrollBy({ left: direction * 320, behavior: 'smooth' });
         }
 
+        (function autoScrollNews() {
+            var el = document.getElementById('newsCarousel');
+            if (!el) return;
+            var timer;
+            function tick() {
+                var atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 5;
+                if (atEnd) {
+                    el.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    el.scrollBy({ left: 320, behavior: 'smooth' });
+                }
+            }
+            function start() { timer = setInterval(tick, 3000); }
+            function stop() { clearInterval(timer); }
+            start();
+            el.addEventListener('mouseenter', stop);
+            el.addEventListener('mouseleave', start);
+            el.addEventListener('touchstart', stop, { passive: true });
+            el.addEventListener('touchend', start);
+        })();
+
         function switchSchoolTab(e, tabName) {
             // Hide all tabs
             document.querySelectorAll('#schools .tab-content').forEach(content => {
