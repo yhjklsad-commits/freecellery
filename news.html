@@ -3758,5 +3758,23 @@
         <p style="margin-top: 1rem; font-size: 12px;">© 2026 프리셀리국제과외. All rights reserved.</p>
     </footer>
 
+    <script>
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        var q = params.get('q');
+        if (!q) return;
+        var cards = document.querySelectorAll('.grid .card');
+        var matchCount = 0;
+        cards.forEach(function(card) {
+            if (card.innerText.indexOf(q) !== -1) { matchCount++; }
+            else { card.style.display = 'none'; }
+        });
+        var grid = document.querySelector('.grid');
+        var banner = document.createElement('div');
+        banner.style.cssText = 'padding:1rem;background:#f7f5ea;border-radius:8px;margin-bottom:1.5rem;';
+        banner.innerHTML = '🔍 <strong>"' + q + '"</strong> 관련 뉴스 ' + matchCount + '건 <a href="/news.html" style="margin-left:1rem;color:#C9A227;font-weight:700;">전체보기 →</a>';
+        grid.parentNode.insertBefore(banner, grid);
+    })();
+    </script>
 </body>
 </html>
