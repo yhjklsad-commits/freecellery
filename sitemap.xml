@@ -31,6 +31,16 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://freecellery.com/privacy.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://freecellery.com/terms.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://freecellery.com/news/blog-1.html</loc>
     <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
